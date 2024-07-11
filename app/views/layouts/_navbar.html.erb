@@ -9,7 +9,11 @@
         <%= link_to "About", "#", class: "text-blue-600 hover:text-blue-400 ml-4" %>
       </div>
       <div class="flex-shrink-0">
-        <%= link_to "Login", new_user_path, class: "bg-blue-600 hover:bg-blue-400 text-white py-2 px-4 rounded" %>
+        <% if logged_in? %>
+          <%= button_to "Logout", session_path, method: :delete, class: "bg-blue-600 hover:bg-blue-400 text-white py-2 px-4 rounded" %>
+        <% else %>
+          <%= link_to "Login", new_user_path, class: "bg-blue-600 hover:bg-blue-400 text-white py-2 px-4 rounded" %>
+        <% end %>
       </div>
     </div>
   </div>
