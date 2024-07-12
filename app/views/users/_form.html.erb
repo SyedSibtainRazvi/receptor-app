@@ -1,4 +1,4 @@
-<div class="w-96 mx-auto mt-8">
+<div class="mx-auto mt-8 w-96">
   <% if @user.errors.any? %>
     <% flash.now[:alert] = "Validation error: " + @user.errors.full_messages.join(", ") %>
   <% end %>
@@ -21,7 +21,7 @@
     </div>
     <div class="flex items-center justify-between">
       <%= form.submit "Sign Up", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-      <p class="text-center mt-2 text-gray-700">
+      <p class="mt-2 text-center text-gray-700">
         Already have an account? <%= link_to "Login", new_session_path, class: "text-blue-500 hover:underline" %>
       </p>
     </div>
