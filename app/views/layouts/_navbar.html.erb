@@ -1,12 +1,15 @@
 <nav class="bg-white shadow-md">
-  <div class="max-w-7xl mx-auto p-4">
-    <div class="flex justify-between items-center">
+  <div class="p-4 mx-auto max-w-7xl">
+    <div class="flex items-center justify-between">
       <div class="flex-shrink-0">
         <%= link_to "Receptor", "/", class: "text-blue-600 hover:text-blue-400 mr-4" %>
       </div>
       <div class="hidden sm:block">
-        <%= link_to "All Recipes", "#", class: "text-blue-600 hover:text-blue-400 ml-4" %>
+        <%= link_to "All Recipes", recipes_path, class: "text-blue-600 hover:text-blue-400 ml-4" %>
         <%= link_to "About", "#", class: "text-blue-600 hover:text-blue-400 ml-4" %>
+        <% if logged_in? %>
+          <%= link_to "Create Recipe", new_recipe_path, class: "text-blue-600 hover:text-blue-400 ml-4" %>
+        <% end %>
       </div>
       <div class="flex-shrink-0">
         <% if logged_in? %>
