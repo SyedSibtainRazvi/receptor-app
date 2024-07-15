@@ -1,0 +1,59 @@
+<%= form_with(model: recipe, local: true, class: "max-w-3xl mx-auto") do |form| %>
+  <% if recipe.errors.any? %>
+    <div id="error_explanation" class="relative px-4 py-3 mb-4 text-red-700 bg-red-100 border border-red-400 rounded">
+      <h2 class="font-bold"> <%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved: </h2>
+      <ul>
+        <% recipe.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mb-4">
+    <%= form.label :title, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :title, class: "form-input mt-1 block w-full border rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :short_description, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :short_description, class: "form-input mt-1 block w-full border rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :image, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.file_field :image, class: "form-input mt-1 block w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :about, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_area :about, class: "form-textarea mt-1 block w-full border rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :instructions, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_area :instructions, class: "form-textarea mt-1 block w-full border rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :notes, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_area :notes, class: "form-textarea mt-1 block w-full border rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :portions, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :portions, class: "form-input mt-1 block w-full border rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :duration, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :duration, class: "form-input mt-1 block w-full border rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :diet, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.select :diet, Recipe.diets.keys.map { |diet| [diet.humanize, diet] }, {}, class: "form-select mt-1 block w-full border rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :category, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.select :category, Recipe.categories.keys.map { |category| [category.humanize, category] }, {}, class: "form-select mt-1 block w-full border rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :ingredients, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_area :ingredients, class: "form-textarea mt-1 block w-full border rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50" %>
+  </div>
+  <div class="mb-4">
+    <%= form.submit "Save Recipe", class: "bg-blue-600 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded" %>
+  </div>
+<% end %>

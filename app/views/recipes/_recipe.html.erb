@@ -1,0 +1,21 @@
+<div id="<%= dom_id recipe %>" class="overflow-hidden bg-white rounded-lg shadow-md">
+  <%= link_to recipe do %>
+    <% if recipe.image.attached? %>
+      <%= image_tag url_for(recipe.image), class: "w-full h-64 object-cover object-center" %>
+    <% else %>
+      <span class="block w-full h-64 bg-gray-300"></span>
+    <% end %>
+    <div class="p-4">
+      <h2 class="mb-2 text-xl font-bold text-gray-800"><%= recipe.title %></h2>
+      <p class="text-gray-600"><%= recipe.ingredients %></p>
+      <p class="mt-4 text-gray-700"><strong class="font-medium">Short Description:</strong> <%= recipe.short_description %></p>
+      <p class="mt-2 text-gray-700"><strong class="font-medium">About:</strong> <%= recipe.about %></p>
+      <p class="mt-2 text-gray-700"><strong class="font-medium">Instructions:</strong> <%= recipe.instructions %></p>
+      <p class="mt-2 text-gray-700"><strong class="font-medium">Notes:</strong> <%= recipe.notes %></p>
+      <p class="mt-2 text-gray-700"><strong class="font-medium">Portions:</strong> <%= recipe.portions %></p>
+      <p class="mt-2 text-gray-700"><strong class="font-medium">Duration:</strong> <%= recipe.duration %>Min</p>
+      <p class="mt-2 text-gray-700"><strong class="font-medium">Diet:</strong> <%= recipe.diet %></p>
+      <p class="mt-2 text-gray-700"><strong class="font-medium">Category:</strong> <%= recipe.category %></p>
+    </div>
+  <% end %>
+</div>
