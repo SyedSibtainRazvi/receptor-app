@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '3.1.4'
@@ -27,6 +29,7 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'rubocop'
 gem 'tailwindcss-rails', '~> 2.6'
 
 # Use Redis adapter to run Action Cable in production
