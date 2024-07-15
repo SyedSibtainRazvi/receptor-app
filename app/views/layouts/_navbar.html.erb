@@ -1,0 +1,20 @@
+<nav class="bg-white shadow-md">
+  <div class="max-w-7xl mx-auto p-4">
+    <div class="flex justify-between items-center">
+      <div class="flex-shrink-0">
+        <%= link_to "Receptor", "/", class: "text-blue-600 hover:text-blue-400 mr-4" %>
+      </div>
+      <div class="hidden sm:block">
+        <%= link_to "All Recipes", "#", class: "text-blue-600 hover:text-blue-400 ml-4" %>
+        <%= link_to "About", "#", class: "text-blue-600 hover:text-blue-400 ml-4" %>
+      </div>
+      <div class="flex-shrink-0">
+        <% if logged_in? %>
+          <%= button_to "Logout", session_path, method: :delete, class: "bg-blue-600 hover:bg-blue-400 text-white py-2 px-4 rounded" %>
+        <% else %>
+          <%= link_to "Login", new_user_path, class: "bg-blue-600 hover:bg-blue-400 text-white py-2 px-4 rounded" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

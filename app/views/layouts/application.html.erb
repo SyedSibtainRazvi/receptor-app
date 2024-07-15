@@ -9,8 +9,20 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
-  </body>
+    <%= render 'layouts/navbar' %>
+    <% if flash[:notice] %>
+      <div class="bg-green-500 text-white text-center py-2 px-4 rounded">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="bg-red-500 text-white text-center py-2 px-4 rounded">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+  </div>
+  <main class="container mx-auto mt-28 px-5 flex">
+    <%= yield %>
+  </main>
+</body>
 </html>
